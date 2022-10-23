@@ -31,7 +31,7 @@ async function loginPage () {
     spanBtn.classList.add("text2")
     btnRegister.classList.add("btnRegister")
     btnRegister.addEventListener("click", () => {
-        window.location.replace("../register/register.html")
+        window.location.replace("/register.html")
     })
 
     h2Login.innerText = "Login"

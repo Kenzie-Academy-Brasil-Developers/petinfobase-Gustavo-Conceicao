@@ -40,7 +40,7 @@ function registerPage () {
     h2Register.innerText = "Cadastro"
     buttonBackLogin.innerText = "Voltar para o login"
     buttonBackLogin.addEventListener("click", () => {
-        window.location.replace("../login/login.html")
+        window.location.replace("/pages/login/login.html")
     })
     
     const element = [...form.elements]
@@ -77,7 +77,7 @@ function registerPage () {
     buttonRegister.id = "idBtnRegister"
     btnBackLogin.innerText = "Voltar para o login"
     btnBackLogin.addEventListener("click", () => {
-        window.location.replace("../login/login.html")
+        window.location.replace("/pages/login/login.html")
     })
 
     form.append(labelUser,inputUser,labelEmail,inputEmail,labelImg,inputImg,labelPassword,inputPassword,buttonRegister)
