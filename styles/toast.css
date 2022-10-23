@@ -1,0 +1,62 @@
+.containerToast {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    width: 90px;
+    box-shadow: 0px 4px 4px var(--box-shadow-color);
+    animation: spanToast 2000ms ease-in forwards;
+}
+
+@keyframes spanToast {
+    0%   {right: 30px; top:-100px}
+    25%  {right: 30px; top:10px}
+    50%  {right: 30px; top:10px}
+    100% {right: 30px; top:-100px}
+}
+
+.containerToast > img {
+    width: 24px;
+    height: 24px;
+}
+
+.successToast {
+    border: 2px solid var(--sucess100);
+    background-color: var(--grey900);
+}
+
+.errToast {
+    border: 2px solid var(--alert100);
+    background-color: var(--grey900);
+}
+
+.headerToast{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.toastSucessTitle {
+    font-family: IBM Plex Sans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: var(--sucess100);
+}
+
+.toastFailTitle {
+    font-family: IBM Plex Sans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: var(--alert100);
+}
+
+
+.spanToast {
+    font-family: IBM Plex Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: var(--gray100);
+}

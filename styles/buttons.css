@@ -1,0 +1,126 @@
+.btnPrimary {
+    height: 38px;
+    width: 321px;
+    border-radius: 4px;
+    padding: 0px 16px;
+    background-color: var(--brand100);
+    color: var(--gray900);
+    cursor: pointer;
+    border: none;
+}
+
+.btnPrimary:hover {
+    background-color: var(--brand200);
+}
+
+.btnLoading {
+    height: 38px;
+    width: 48px;
+    border-radius: 4px;
+    padding: 0px 16px;
+    background-color: var(--brand100);
+    color: var(--gray900);
+    cursor: pointer;
+}
+
+.aLink {
+    color: var(--brand100);
+    cursor: pointer;
+}
+
+.aLink:hover {
+    text-decoration: underline;
+}
+
+.btnDelete {
+    height: 30px;
+    width: 60px;
+    border-radius: 4px;
+    background-color: var(--gray700);
+    color: var(--gray400);
+    cursor: pointer;
+    border: none;
+}
+
+.btnDelete:hover {
+    color: var(--gray300);
+
+}
+
+.btnEdit {
+    height: 30px;
+    width: 60px;
+    border-radius: 4px;
+    background-color: var(--gray900);
+    color: var(--gray100);
+    cursor: pointer;
+    border: 1.8px solid var(--gray600);
+}
+
+.btnEdit:hover {
+    background-color: var(--gray700);
+}
+
+.btnNewPost {
+    height: 32px;
+    width: 140px;
+    border-radius: 4px;
+    background-color: var(--brand100);
+    color: var(--gray900);
+    cursor: pointer;
+    border: none;
+}
+
+.btnNewPost:hover{
+    background-color: var(--brand200);
+}
+
+.btnCancel {
+    height: 38px;
+    width: 105px;
+    border-radius: 4px;
+    padding: 7px 20px;
+    background-color: var(--gray600);
+    color: var(--gray400);
+    cursor: pointer;
+}
+
+.btnRegister {
+    height: 38px;
+    width: 321px;
+    border-radius: 4px;
+    padding: 0px 16px;
+    background-color: var(--gray900);
+    color: var(--gray100);
+    cursor: pointer;
+    border: 1px solid var(--gray600);
+}
+
+.btnRegister:hover {
+    background-color: var(--gray700);
+}
+
+.buttonAcessPost {
+    font-weight: 500;
+    color: var(--brand100);
+    cursor: pointer;
+}
+
+.buttonAcessPost:hover{
+    text-decoration: underline;
+}
+
+.btnCloseModal {
+    width: 30px;
+    height: 30px;
+    background-color: var(--gray700);
+    color: var(--gray400);
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.btnCloseModal:hover{
+    color: var(--gray100);
+}
+

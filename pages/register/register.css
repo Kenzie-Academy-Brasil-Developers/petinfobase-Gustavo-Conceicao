@@ -1,0 +1,87 @@
+.container {
+    width: 60%;
+    margin: 0 auto;
+    position: fixed;
+    top: 5%;
+    left: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+}
+.sectionPrimary {
+    border: 1px solid var(--gray600);
+    border-radius: 4px;
+    width: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start ;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 20px;
+
+}
+
+.divCadastro {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.formRegister {
+    width: 370px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btnBackLogin {
+    height: 30px;
+    width: 140px;
+    left: 590px;
+    top: 5px;
+    border-radius: 4px;
+    padding: 0px 10px;
+    background-color: var(--gray900);
+    color: var(--gray100);
+    border: 1px solid var(--gray600);
+    cursor: pointer;
+}
+
+.btnBackLogin:hover{
+    background-color: var(--gray800);
+
+}
+
+.sectionSecundary {
+    width: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    gap: 20px;
+    margin-bottom: 100px;
+    
+    
+}
+
+.divImgAnimals {
+    width: 370px;
+    display: flex;
+    flex-direction: row;
+    width: 290px;
+    height: 90px;
+}
+
+.divSmallAnimals {
+    display: flex;
+    flex-direction: row;
+}
+
+.divBigAnimals {
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+}
+
+

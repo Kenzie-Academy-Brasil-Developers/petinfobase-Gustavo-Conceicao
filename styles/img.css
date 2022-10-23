@@ -1,0 +1,40 @@
+.imgCatBig {
+    height: 200px;
+    width: 87px;
+    border-radius: 12px;
+}
+
+.imgCatSmall {
+    height: 95px;
+    width: 87px;
+    border-radius: 12px;
+    margin-right: 8px;
+    margin-bottom: 12px;
+} 
+
+.imgDogBig {
+    height: 95px;
+    width: 192px;
+    border-radius: 12px;
+}
+
+.imgDogSmall {
+    height: 95px;
+    width: 87px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.imgProfile {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+}
+
+.imgProfileHeader {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+

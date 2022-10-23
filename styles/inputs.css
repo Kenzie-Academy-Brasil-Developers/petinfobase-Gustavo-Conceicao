@@ -1,0 +1,23 @@
+.inputPlaceholder {
+    height: 44px;
+    width: 321px;
+    border-radius: 4px;
+    padding: 0px 16px;
+    background-color: var(--gray800);
+    color: var(--gray400);
+    border: 2px solid var(--gray600);
+}
+
+.inputPlaceholder:focus{
+    outline: none;
+    border-color: var(--brand200);
+}
+
+.inputPassword {
+    height: 44px;
+    width: 321px;
+    border-radius: 4px;
+    padding: 0px 16px;
+    background-color: var(--gray800);
+    color: var(--gray400);
+}
