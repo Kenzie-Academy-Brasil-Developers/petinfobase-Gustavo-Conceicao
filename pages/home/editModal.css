@@ -1,16 +1,23 @@
-.sectionEditModal {
+.sectionBackground {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bgcolorModal);
+    width: 100vw;
+    height: 100vh;
     position: fixed;
-    top: 50px;
-    left: 250px;
+    top: 0;
+    left: 0;
+}
+
+.sectionEditModal {
     display: flex;
     flex-direction: column;
     height: 500px;
     width: 850px;
     border-radius: 8px;
     padding: 25px 24px;
-    background-color: rgba(0, 0, 0, 0.062);  
-    /* background-color: red; */
+    background-color: var(--gray900) ;
     gap: 25px;
 }
 

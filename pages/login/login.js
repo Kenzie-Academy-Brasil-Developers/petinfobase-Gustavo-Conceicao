@@ -12,6 +12,14 @@ async function loginPage () {
     inputPassword.id = "inputPassword"
     const spanPasswordError = document.createElement("span")
     const buttonAcess = document.createElement("button")
+    buttonAcess.addEventListener("click", async (e) => {
+        e.preventDefault()
+        const bodyLogin = {
+            email: inputEmail.value,
+            password: inputPassword.value
+        }
+        await login(bodyLogin)
+    })
     const divRegister = document.createElement("div")
     const pQuestion = document.createElement("p")
     const spanBtn = document.createElement("span")
@@ -72,19 +80,3 @@ async function loginPage () {
 
 loginPage()
 
-async function bodyLogin () {
-    const emailLogin = document.querySelector("#inputEmail")
-    const passwordLogin = document.querySelector("#inputPassword")
-    const buttonAcess = document.querySelector(".btnPrimary")
-    buttonAcess.addEventListener("click", (e) => {
-        e.preventDefault()
-        const bodyLogin = {
-            email: emailLogin.value,
-            password: passwordLogin.value
-        }
-        login(bodyLogin)
-    })
-
-}
-
-bodyLogin()
