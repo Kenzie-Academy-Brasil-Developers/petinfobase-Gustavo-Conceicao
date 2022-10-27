@@ -1,9 +1,25 @@
 import {
     getInfo,
     editPost,
-    createPost,
+    createPost, 
     deletePost
 } from "../../scripts/requests.js"
+
+function logOut () {
+    const tokenProfile = localStorage.getItem("tokenPet:") 
+    const btnLogOut = document.getElementById("btnLogOut")
+    btnLogOut.addEventListener("click", () => {
+        window.location.replace("../login/login.html")
+        localStorage.removeItem("tokenPet:")
+    })
+}
+logOut()
+
+const tokenProfile = localStorage.getItem("tokenPet:") 
+console.log(tokenProfile)
+if(!tokenProfile){
+    window.location.replace("../../pages/login/login.html")
+}
 
 async function headerHome() {
     const getRequest = await getInfo()
@@ -59,6 +75,7 @@ async function homePage() {
         btnDelete.addEventListener("click", async(e) =>{
             e.preventDefault()
             await deletePost(elem.id)
+            location.reload()
         })
         h2Post.innerText = elem.title
         post.innerText = elem.content
@@ -160,9 +177,9 @@ function editPostModal(elem) {
     })
 
     labelTitle.innerText = "Título do post"
-    inputTitle.innerText = elem.title
+    inputTitle.value = elem.title
     labelPost.innerText = "Conteúdo do post"
-    textareaPost.innerText = elem.content
+    textareaPost.value = elem.content
     buttonCancel.innerText = "Cancel"
     buttonCancel.addEventListener("click", () => {
         sectionEditModal.remove()
@@ -177,6 +194,7 @@ function editPostModal(elem) {
         }
         await editPost(elem.id,bodyEditPost)
         sectionEditModal.remove()
+        location.reload()
     })
 
     divbtnEditModal.append(buttonCancel, buttonSave)
@@ -238,7 +256,7 @@ function newPostModal(elem) {
         inputValue.forEach(elem => {
             value[elem.name] = elem.value
         })
-        await editPost(elem.id,value)
+        await createPost(elem.id,value)
     })
     labelTitle.innerText = "Título do post"
     labelPost.innerText = "Conteúdo do post"
@@ -255,6 +273,7 @@ function newPostModal(elem) {
         }
         await createPost(bodyCreateNewPost)
         sectionNewPostModal.remove()
+        location.reload()
     })
 
     divbtnNewPostModal.append(buttonCancel, buttonPublish)
@@ -270,6 +289,7 @@ const btnNewPost = document.querySelector(".btnNewPost")
 btnNewPost.addEventListener("click", () => {
     const body = document.querySelector("body")
     body.append(newPostModal())
+    
 })
 
 

@@ -39,7 +39,7 @@ async function loginPage () {
     spanBtn.classList.add("text2")
     btnRegister.classList.add("btnRegister")
     btnRegister.addEventListener("click", () => {
-        window.location.replace("/register.html")
+        window.location.replace("/index.html")
     })
 
     h2Login.innerText = "Login"
@@ -50,11 +50,11 @@ async function loginPage () {
 		const body = {}
         buttonAcess.disabled = true
 		elements.forEach((elem) => {
-			if (elem.tagName == "INPUT" && elem.value !== "") {
+			if (elem.tagName == "INPUT" && elem.value === "") {
 				buttonAcess.disabled = false
 			}
 		})
-
+        console.log(body)
 		await login(body)
 	})	
 

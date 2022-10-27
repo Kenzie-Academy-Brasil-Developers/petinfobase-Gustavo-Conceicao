@@ -2,7 +2,6 @@ import {toast} from "./toast.js";
 
 const baseUrl = "http://localhost:3333";
 
-
 async function login(body) {
   try {
     const request = await fetch(`${baseUrl}/login`, {
@@ -14,17 +13,16 @@ async function login(body) {
     })
     .then(res => res.json())
     .then(res => {
-      if(res.token){
-        localStorage.setItem("tokenPet:", JSON.stringify(res.token))
-        window.location.replace("../home/home.html")
+      if(res.token) {
+        localStorage.setItem("tokenPet:", res.token)
+        window.location.assign("../home/home.html")
       }else{
-        toast("Erro!", "Algo deu errado")
+        toast("Erro!", "Algo deu errado");
       }
-      return request
     })
-
-
+    return request
   } catch (err) {
+    console.log(err)
     toast("Erro!", "Algo deu errado");
   }
 }
@@ -40,7 +38,7 @@ async function register(body) {
     })
     .then(res => res.json())
     .then(res => {
-      if (res) {
+      if(res) {
         toast("Sua conta foi criada com sucesso!", "Agora você pode acessar os conteúdos utilizando seu usuário e senha na página de login");
 
         setTimeout(() => {
@@ -52,13 +50,13 @@ async function register(body) {
       }
       return request
   })
- } catch (err) {
+  } catch (err) {
     toast("Erro!", "Algo deu errado");
   }
 }
 
 async function getInfo () {
-  const tokenProfile = JSON.parse(localStorage.getItem("tokenPet:"))
+  const tokenProfile = localStorage.getItem("tokenPet:")
   try {
     const request = await fetch(`${baseUrl}/posts`, {
       method: "GET",
@@ -77,7 +75,7 @@ async function getInfo () {
 }
 
 async function editPost (id,body) {
-  const tokenProfile = JSON.parse(localStorage.getItem("tokenPet:"))
+  const tokenProfile = localStorage.getItem("tokenPet:")
   try {
     const request = await fetch(`${baseUrl}/posts/${id}`, {
       method: "PATCH",
@@ -87,8 +85,8 @@ async function editPost (id,body) {
       },
       body: JSON.stringify(body)
     })
-    .then(res => res.json()
-    .then(res => res))
+    .then(res => res.json())
+    .then(res => res)
     
     return request
   } catch (err) {
@@ -97,7 +95,7 @@ async function editPost (id,body) {
 }
 
 async function createPost (body) {
-  const tokenProfile = JSON.parse(localStorage.getItem("tokenPet:")) 
+  const tokenProfile = localStorage.getItem("tokenPet:") 
   try {
     const request = await fetch(`${baseUrl}/posts/create`, {
       method: "POST",
@@ -108,7 +106,13 @@ async function createPost (body) {
       body: JSON.stringify(body),
     })
     .then(res => res.json())
-    .then(res => res)
+    .then(res => {
+      if(res.id){
+        return true
+      }else{
+        return false
+      }
+    })
     return request
   } catch (err) {
     console.log(err);
@@ -116,28 +120,26 @@ async function createPost (body) {
 }
 
 async function deletePost (id) {
+  const tokenProfile = localStorage.getItem("tokenPet:") 
   try {
     const request = await fetch(`${baseUrl}/posts/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${tokenProfile}`
       },
     })
     .then(res => res.json())
-    .then(res => {
-      if(res){
-        toast("Sua conta foi deletada com sucesso!", "Agora você pode acessar os conteúdos utilizando seu usuário e senha na página de login");
-
-        setTimeout(() => {
-          document.location.href = "/pages/home/home.html";
-        }, 3000);
-      }
-    })
+    .then(res => console.log(res))
       return request
 
   } catch (err) {
     toast("Erro!", "Algo deu errado");
   }
+}
+
+async function getUser () {
+  
 }
 
 export {login, register, getInfo,editPost, createPost, deletePost};

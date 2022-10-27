@@ -2,7 +2,7 @@ export function toast (title, message){
     const body = document.querySelector("body")
 
     const container = document.createElement("div")
-    container.classList.add(".containerToast")
+    container.classList.add("containerToast")
 
     const divHeaderToast = document.createElement("div")
     divHeaderToast.classList.add("headerToast")
@@ -30,7 +30,7 @@ export function toast (title, message){
     }else{
         title == "Erro !"
         message == "Algo não deu errado"
-        img.src = "../src/iconfail.png"
+        img.src = "../../src/iconfail.png"
         h3.classList.add("toastFailTitle")
         container.classList.add("errToast")
     }
@@ -38,6 +38,9 @@ export function toast (title, message){
     divHeaderToast.append(img,h3)
 
     container.append(divHeaderToast,span)
+    container.addEventListener("animationend", () => {
+        container.remove()
+    })
 
     body.appendChild(container)
 }

@@ -75,6 +75,11 @@ function registerPage () {
     inputPassword.type = "password"
     buttonRegister.innerText = "Cadastrar"
     buttonRegister.id = "idBtnRegister"
+    // buttonRegister.addEventListener("click", () => {
+    //     // setTimeout(() => {
+    //     //     document.location.href = "/pages/login/login.html";
+    //     //   }, 3000);
+    // })
     btnBackLogin.innerText = "Voltar para o login"
     btnBackLogin.addEventListener("click", () => {
         window.location.replace("/pages/login/login.html")
