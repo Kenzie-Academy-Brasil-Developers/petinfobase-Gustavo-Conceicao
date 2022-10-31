@@ -138,8 +138,44 @@ async function deletePost (id) {
   }
 }
 
-async function getUser () {
-  
+async function getUser  () {
+  const tokenProfile = localStorage.getItem("tokenPet:")
+  try {
+    const request = await fetch(`${baseUrl}/users/profile`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${tokenProfile}`,
+      },
+    })
+    .then(res => res.json())
+    .then(res => res)
+    return request
+
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-export {login, register, getInfo,editPost, createPost, deletePost};
+async function deleteUser  () {
+  const tokenProfile = localStorage.getItem("tokenPet:")
+  try {
+    const request = await fetch(`${baseUrl}/users/profile`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${tokenProfile}`,
+      },
+    })
+    .then(res => res.json())
+    .then(res => res)
+    return request
+
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+
+
+export {login, register, getInfo,editPost, createPost, deletePost, getUser, deleteUser};

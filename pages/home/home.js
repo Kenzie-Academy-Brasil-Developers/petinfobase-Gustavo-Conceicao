@@ -2,7 +2,8 @@ import {
     getInfo,
     editPost,
     createPost, 
-    deletePost
+    deletePost,
+    getUser
 } from "../../scripts/requests.js"
 
 function logOut () {
@@ -32,6 +33,7 @@ headerHome()
 
 async function homePage() {
     const getRequest = await getInfo()
+    const getUserId = await getUser()
     getRequest.forEach(elem => {
         const ul = document.querySelector(".ulHome")
         const liHome = document.createElement("li")
@@ -66,17 +68,23 @@ async function homePage() {
         imgProfile.src = elem.user.avatar
         name.innerText = elem.user.username
         pData.innerText = elem.createdAt
-        btnEdit.innerText = "Editar"
-        btnEdit.addEventListener("click", async (e) => {
-            e.preventDefault()
-            editPostModal(elem)
-        })
-        btnDelete.innerText = "Excluir"
-        btnDelete.addEventListener("click", async(e) =>{
-            e.preventDefault()
-            await deletePost(elem.id)
-            location.reload()
-        })
+        if(elem.user.id === getUserId.id){
+            btnEdit.innerText = "Editar"
+    
+            btnEdit.addEventListener("click", async (e) => {
+                e.preventDefault()
+                editPostModal(elem)
+            })
+            btnDelete.innerText = "Excluir"
+            btnDelete.addEventListener("click", async(e) =>{
+                e.preventDefault()
+                await deletePost(elem.id)
+                location.reload()
+            })
+        }else{
+            btnDelete.classList = "btnDeleteEdit"
+            btnEdit.classList = "btnDeleteEdit"
+        }
         h2Post.innerText = elem.title
         post.innerText = elem.content
         acessPost.innerText = "Acessar publicação"

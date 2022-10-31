@@ -8,6 +8,7 @@ export function toast (title, message){
     divHeaderToast.classList.add("headerToast")
 
     const img = document.createElement("img")
+    img.classList.add("icon")
     img.alt = `Mensagem de ${title}`
 
     const h3 = document.createElement("h3")

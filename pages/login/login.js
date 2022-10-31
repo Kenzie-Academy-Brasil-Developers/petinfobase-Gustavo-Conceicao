@@ -54,7 +54,6 @@ async function loginPage () {
 				buttonAcess.disabled = false
 			}
 		})
-        console.log(body)
 		await login(body)
 	})	
 
